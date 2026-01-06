@@ -1,0 +1,138 @@
+ /* IMPLEMENTACION DE CADA ESTRUCUTURA DE ESTE CSS (AUTOR : KAREN MAMANI)*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+/* Sección principal con imagen de fondo full screen */
+.hobbies-section {
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Imagen de fondo */
+  background: url('hobis.jpg') no-repeat center center/cover;
+  position: relative;
+  z-index: 1;
+}
+
+/* Capa oscura para contraste */
+.hobbies-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+
+.hobbies-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.hobbies-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+.hobbies-header p {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+/* Contenedor de círculos */
+.hobbies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+}
+
+/* Tarjetas circulares con video y glassmorphism */
+.hobby-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,0.5);
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hobby-circle video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hobby-circle p {
+  position: absolute;
+  bottom: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  padding: 0 5px;
+}
+
+/* Animación flotante */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Botón regresar */
+.action-btn {
+  margin-top: 3rem;
+}
+
+.back-btn {
+  background-color: rgba(150, 119, 36, 0.85);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn i {
+  margin-right: 0.5rem;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  background-color: rgba(112, 72, 14, 0.85);
+}
+
+/* Responsive */
+@media(max-width: 900px){
+  .hobby-circle {
+    width: 180px;
+    height: 180px;
+  }
+}

@@ -1,0 +1,160 @@
+/* IMPLEMENTACION DE TODO EL CSS (AUTOR : KAREN MAMANI) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+/* Sección principal con imagen de fondo full screen */
+.combined-section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+
+  /* Imagen de fondo */
+  background: url('Metasss.jpg') no-repeat center center/cover;
+  position: relative;
+  z-index: 1;
+}
+
+/* Capa oscura sobre la imagen para contraste */
+.combined-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+
+.combined-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Títulos */
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+.section-subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #f0e6e6;
+}
+
+/* Contenedor de tarjetas */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Tarjetas semitransparentes (glassmorphism) */
+.card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  width: 250px;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: float 4s ease-in-out infinite;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+}
+
+/* Iconos */
+.card i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+/* Textos */
+.card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+.card p {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+/* Barra de progreso */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+.progress {
+  height: 100%;
+  background: #fff;
+  border-radius: 5px;
+}
+.status {
+  font-size: 0.9rem;
+  color: #ffd700;
+  font-weight: 600;
+}
+
+/* Animación flotante */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Botón regresar */
+.action-btn {
+  margin: 2rem auto; 
+  text-align: center;
+}
+
+.back-btn {
+  background-color: rgba(147, 100, 39, 0.85);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn i {
+  margin-right: 0.5rem;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+/* Responsivo */
+@media (max-width: 900px){
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
